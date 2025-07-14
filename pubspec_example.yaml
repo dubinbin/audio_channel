@@ -1,0 +1,38 @@
+name: voice_chat_app
+description: Flutter语音聊天应用
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Socket.IO客户端
+  socket_io_client: ^2.0.3+1
+
+  # WebRTC支持
+  flutter_webrtc: ^0.9.46
+
+  # 权限管理
+  permission_handler: ^11.0.1
+
+  # UI相关
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  # 如果需要添加图标或其他资源
+  # assets:
+  #   - images/
+  #   - icons/

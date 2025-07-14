@@ -1,0 +1,19 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    https: false, // 可以设置为 true 启用 HTTPS，但需要证书
+    // 如果需要启用 HTTPS，可以使用以下配置：
+    // https: {
+    //   key: './localhost-key.pem',
+    //   cert: './localhost.pem'
+    // }
+    // 或者简单的自签名证书（仅开发用）：
+    // https: true
+  }
+})
