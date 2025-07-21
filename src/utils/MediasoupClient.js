@@ -17,7 +17,7 @@ class MediasoupClient {
   }
 
   // 连接到服务器
-  async connect(serverUrl = 'https://192.168.20.151:8000') {
+  async connect(serverUrl = 'https://audio.hkcrc.live') {
     try {
       console.log('🔗 正在连接到服务器:', serverUrl);
       
@@ -139,6 +139,7 @@ class MediasoupClient {
 
   // 创建发送传输
   async createSendTransport() {
+    console.log('创建发送传输');
     try {
       const transportOptions = await this.socketRequest('createWebRtcTransport', {
         direction: 'send'

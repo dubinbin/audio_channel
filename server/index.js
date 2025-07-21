@@ -21,7 +21,12 @@ const serverPort = 8000;
 
 // 配置CORS
 app.use(cors({
-  origin: ["http://localhost:5173", `http://${host}:5173`], // 支持多个域名，改为HTTP
+  origin: [
+    "http://localhost:5173", 
+    `http://${host}:5173`, 
+    `http://${host}:${serverPort}`,
+    "http://localhost:3000"
+  ],
   methods: ["GET", "POST"],
   credentials: true
 }));
@@ -31,7 +36,12 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 const io = new SocketIOServer(server, {
   cors: {
-    origin: ["http://localhost:5173", `http://${host}:5173`], // 支持多个域名，改为HTTP
+    origin: [
+      "http://localhost:5173", 
+      `http://${host}:5173`, 
+      `http://${host}:${serverPort}`,
+      "http://localhost:3000"
+    ],
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -61,7 +71,7 @@ const webRtcTransportOptions = {
   listenIps: [
     {
       ip: '0.0.0.0', // 监听所有网络接口
-      announcedIp: `http://${host}:5173`, // 公布的IP地址
+      announcedIp: host, // 只使用IP地址，不包含协议和端口
     },
   ],
   enableUdp: true,
