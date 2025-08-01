@@ -6,6 +6,7 @@ import mediasoup from "mediasoup";
 import process from "process";
 import path from "path";
 import { fileURLToPath } from "url";
+import { config } from "./config/config.js";
 
 const app = express();
 
@@ -16,8 +17,8 @@ const __dirname = path.dirname(__filename);
 // 创建 HTTP 服务器
 const server = http.createServer(app);
 
-const host = '192.168.20.146';
-const serverPort = 8000;
+const host = config.host;
+const serverPort = config.port;
 
 // 配置CORS
 app.use(cors({
